@@ -1,9 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
 
-# Create your models here.
-
-class Menu(models.Model):
+class MenuItem(models.Model):
     id = models.IntegerField(primary_key=True, validators=[MaxValueValidator(99999)])
     title = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
