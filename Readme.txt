@@ -9,25 +9,25 @@ First, make sure that, in the project's outer folder (with a Pipfile), you've ex
 
 TESTS
 
-Test the available unit tests from the terminal using:
-
-	python manage.py test restaurant.tests.test_models
-	python manage.py test restaurant.tests.test_views
+--- Serves Static Content ---
 
 To confirm that this web app serves static HTML content:
 
 	python manage.py runserver
 	Then, visit: /restaurant/
 
-Djoser endpoints...
 
-To confirm user registration, you can make a POST request to create a new user:
 
-	/auth/users/
+--- Connects the backend to a MySQL database ---
 
-To login an user and get its authentication token:
+To confirm that the Django application connects to a MySQL database:
 	
-	/auth/token/login/
+	Check DATABASES in the project's settings.py file.
+	python manage.py migrate
+
+
+
+--- Implementation of the menu and table booking APIs --- 
 
 # In the next endpoints, if asked for authentication, you can login using the credentials:
 
@@ -54,8 +54,33 @@ To see any given booking by id (initially 1 or 2):
 
 	/restaurant/booking/tables/{booking_id}
 
-To confirm that the Django application connects to a MySQL database:
+
+
+--- User Registration and Authentication ---
+
+Djoser endpoints...
+
+To confirm user registration, you can make a POST request to create a new user:
+
+	/auth/users/
+
+To login an user and get its authentication token:
 	
-	Check DATABASES in the project's settings.py file.
+	/auth/token/login/
 
 
+
+--- Confirm the presence of Unit Tests --- 
+
+Test the available unit tests from the terminal using:
+
+	python manage.py test restaurant.tests.test_models
+	python manage.py test restaurant.tests.test_views
+
+
+
+--- Insomnia REST Client Tests ---
+
+You can use a wide range of URLs, but simply:
+
+	http://127.0.0.1:8000/restaurant/
